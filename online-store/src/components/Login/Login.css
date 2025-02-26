@@ -1,0 +1,38 @@
+.Login {
+  /* sizing */
+  width: fit-content;
+  padding: 1.5rem;
+  /* formatting */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10rem;
+  /* styling */
+  border: 2px solid;
+  border-radius: 1rem;
+}
+
+#log-in-header {
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  box-shadow: 0 0.5rem 0.5rem -0.7rem black;
+}
+
+#log-in-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#log-in-box > input {
+  width: 25rem;
+  font-size: 2rem;
+  padding: 0 0.25em;
+}
+
+#log-in-box > input::placeholder {
+  font-size: 1.75rem;
+}

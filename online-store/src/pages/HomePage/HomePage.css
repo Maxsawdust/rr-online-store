@@ -1,13 +1,5 @@
-.home-page {
-  flex-direction: column;
-  gap: 2em;
-}
-
-#log-in-input {
-  font-size: 2rem;
-  padding: 0 1rem;
-}
-
-#log-in-input::placeholder {
-  font-size: 1.5rem;
+#home-page {
+  width: 35%;
+  height: 100%;
+  align-items: center;
 }
