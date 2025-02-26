@@ -1,0 +1,45 @@
+.navbar {
+  /* sizing */
+  min-width: 100%;
+  min-height: 5em;
+  height: 10%;
+  padding: 0 2em;
+  /* display */
+  display: flex;
+  align-items: center;
+  /* styling */
+  background-color: #2d523b;
+}
+
+#shop-logo {
+  /* sizing */
+  width: 3em;
+  height: 3em;
+  /* styling */
+  border-radius: 100%;
+}
+
+#link-container {
+  /* sizing */
+  font-size: 1.5em;
+  /* display */
+  margin-left: calc(50% - 2em);
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2em;
+}
+
+/* styling the links */
+#link-container > a {
+  color: white;
+  transition: all 0.05s ease;
+}
+
+#link-container > a:hover {
+  color: #ffffffc6;
+}
+
+#link-container > a:active {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3), 2px 2px 2px rgba(0, 0, 0, 0.5);
+  transform: translateY(2px);
+}

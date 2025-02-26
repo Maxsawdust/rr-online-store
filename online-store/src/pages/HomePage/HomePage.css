@@ -1,0 +1,13 @@
+.home-page {
+  flex-direction: column;
+  gap: 2em;
+}
+
+#log-in-input {
+  font-size: 2rem;
+  padding: 0 1rem;
+}
+
+#log-in-input::placeholder {
+  font-size: 1.5rem;
+}
