@@ -1,0 +1,17 @@
+.Welcome {
+  /* sizing */
+  height: 90%;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#welcome-text {
+  /* sizing */
+  padding: 1em;
+  /* styling */
+  border-radius: 1.5em;
+  background-color: rgb(92, 141, 92);
+  color: white;
+}

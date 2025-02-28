@@ -5,7 +5,7 @@ import "./HomePage.css";
 
 export default function HomePage() {
   /* since HomePage needs displayComponent in order to display the component,
-     I've defiend that state here and passed the setDisplayComponent as a prop
+     I've defined that state here and passed the setDisplayComponent as a prop
      so that Login and Welcome can access it.*/
   const [displayComponent, setDisplayComponent] = useState(<Login />);
   return (

@@ -1,6 +1,13 @@
-export default function Welcome() {
+import "./Welcome.css";
+
+export default function Welcome({ name }) {
   return (
     //
-    <h1>Welcome</h1>
+    <div className="Welcome">
+      <div id="welcome-text">
+        <h1>Hello, {name}!</h1>
+        <h2>Welcome to Saunders' superstore!</h2>
+      </div>
+    </div>
   );
 }
