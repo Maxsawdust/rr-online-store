@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import HomePageProvider from "../../contexts/HomePageProvider";
 import { Welcome, Login } from "../../components";
 import "./HomePage.css";
 

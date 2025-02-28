@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { UsernameContext } from "../../pages/HomePage/HomePage.jsx";
 import "./Welcome.css";
+import { useContext } from "react";
 
 export default function Welcome() {
   // useNavigate to allow the buttons to navigate to products and about page.
   const navigate = useNavigate();
+  const { username, setUsername } = useContext(UsernameContext);
 
   // retrieving username from localStorage.
   /* this component is only rendered if a valid username is entered, so username 
@@ -13,6 +16,7 @@ export default function Welcome() {
   const handleClick = () => {
     // set localStorage stuff
     localStorage.setItem("isLoggedIn", false);
+    setUsername({ ...username, name: "" });
   };
 
   return (
