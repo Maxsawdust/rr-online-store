@@ -2,18 +2,17 @@ import { useContext, useState } from "react";
 import {
   StateContext,
   UsernameContext,
-} from "../../pages/HomePage/context/HomePageProvider.jsx";
+} from "../../contexts/HomePageProvider.jsx";
 import { Welcome, ErrorMessage } from "../";
 import validateName from "./validateName.js";
 import "./Login.css";
 
 export default function Login({ isError }) {
+  // retrieving states from context providers
   const setDisplayComponent = useContext(StateContext);
   const { username, setUsername } = useContext(UsernameContext);
+  // creating an error state to display ErrorMessage easily
   const [errorMessage, setErrorMessage] = useState("");
-
-  console.log(username);
-  console.log(errorMessage);
 
   // function called on submit of login form.
   const handleSubmit = (e) => {
@@ -24,8 +23,13 @@ export default function Login({ isError }) {
     setUsername({ ...username, isValid });
     // displaying Welcome component if username is valid
     if (isValid) {
-      // passing the username as a prop to Welcome, so that it can display the username.
-      setDisplayComponent(<Welcome name={username.name} />);
+      // displaying Welcome if the log in is successful
+      setDisplayComponent(<Welcome />);
+      /* updating localStorage so it has details pertaining to:
+           Whether or not the user is logged in;
+           The user's name. */
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("username", username.name);
     } else {
       // displaying error message if username is invalid
       setErrorMessage(validateName(username.name).message);

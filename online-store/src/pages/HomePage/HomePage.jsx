@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HomePageProvider from "./context/HomePageProvider";
+import HomePageProvider from "../../contexts/HomePageProvider";
 import { Welcome, Login } from "../../components";
 import "./HomePage.css";
 
@@ -8,11 +8,16 @@ export default function HomePage() {
      I've defined that state here and passed the setDisplayComponent as a prop
      so that Login and Welcome can access it.*/
   const [displayComponent, setDisplayComponent] = useState(<Login />);
+
+  /* getting a boolean value based on localStorage, so that the logged in status 
+     persists between render */
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
   return (
     // Created a provider component to keep HomePage clean
     <HomePageProvider setDisplayComponent={setDisplayComponent}>
       <div className="page-container" id="home-page">
-        {displayComponent}
+        {isLoggedIn ? <Welcome /> : <Login />}
       </div>
     </HomePageProvider>
   );
