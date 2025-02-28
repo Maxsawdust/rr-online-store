@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import "./Welcome.css";
-import { useContext } from "react";
-import { StateContext } from "../../contexts/HomePageProvider";
-import { Login } from "../";
 
 export default function Welcome() {
   // useNavigate to allow the buttons to navigate to products and about page.
   const navigate = useNavigate();
-  const setDisplayComponent = useContext(StateContext);
 
   // retrieving username from localStorage.
   /* this component is only rendered if a valid username is entered, so username 
@@ -15,7 +11,6 @@ export default function Welcome() {
   const name = localStorage.getItem("username");
 
   const handleClick = () => {
-    setDisplayComponent(<Login />);
     // set localStorage stuff
     localStorage.setItem("isLoggedIn", false);
   };

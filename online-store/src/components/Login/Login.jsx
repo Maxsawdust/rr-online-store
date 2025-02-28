@@ -1,15 +1,11 @@
 import { useContext, useState } from "react";
-import {
-  StateContext,
-  UsernameContext,
-} from "../../contexts/HomePageProvider.jsx";
+import { UsernameContext } from "../../pages/HomePage/HomePage.jsx";
 import { Welcome, ErrorMessage } from "../";
 import validateName from "./validateName.js";
 import "./Login.css";
 
-export default function Login({ isError }) {
-  // retrieving states from context providers
-  const setDisplayComponent = useContext(StateContext);
+export default function Login() {
+  // retrieving state from context provider
   const { username, setUsername } = useContext(UsernameContext);
   // creating an error state to display ErrorMessage easily
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,8 +19,6 @@ export default function Login({ isError }) {
     setUsername({ ...username, isValid });
     // displaying Welcome component if username is valid
     if (isValid) {
-      // displaying Welcome if the log in is successful
-      setDisplayComponent(<Welcome />);
       /* updating localStorage so it has details pertaining to:
            Whether or not the user is logged in;
            The user's name. */
