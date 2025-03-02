@@ -2,13 +2,11 @@
   /* sizing */
   min-width: 100%;
   min-height: 5em;
-  height: 10%;
   padding: 0 2em;
   /* display */
   display: grid;
   grid-template-columns: auto 1fr 1fr;
   align-items: center;
-  /* justify-content: flex-start; */
   /* styling */
   background-color: #2d523b;
 }

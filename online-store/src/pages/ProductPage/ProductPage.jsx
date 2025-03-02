@@ -1,17 +1,16 @@
 import { ProductCard } from "../../components";
+// importing "products" array of Product objects from external file.
+import { products } from "./products";
+import "./ProductPage.css";
 
 export default function ProductPage() {
-  const products = [
-    { name: "shirt", price: "10" },
-    { name: "hat", price: "5" },
-    { name: "shoes", price: "15" },
-  ];
-
   return (
     <div className="page-container">
-      {products.map((product) => {
-        return <ProductCard product={product} />;
-      })}
+      <div className="product-page">
+        {products.map((product, index) => {
+          return <ProductCard product={product} key={index} />;
+        })}
+      </div>
     </div>
   );
 }

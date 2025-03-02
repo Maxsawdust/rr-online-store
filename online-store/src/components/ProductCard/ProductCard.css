@@ -1,0 +1,27 @@
+#product-card {
+  max-height: 30em;
+}
+
+#product-image {
+  height: 15em;
+  object-fit: cover;
+}
+
+#product-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+#card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#colour-error {
+  position: absolute;
+  bottom: 2.6em;
+  right: 0.5em;
+  color: red;
+}
