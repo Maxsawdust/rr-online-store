@@ -11,7 +11,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
 
   return (
-    // using context to pass the state to determine whether to display the Cart
+    // using context to pass the state that determines whether to display the Cart
     <CartDisplayContext value={{ cartProducts, setCartProducts }}>
       <Routes>
         <Route path="/" element={<Layout />}>

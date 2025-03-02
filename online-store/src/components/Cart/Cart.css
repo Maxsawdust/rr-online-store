@@ -19,6 +19,7 @@
   /* styling */
   border-radius: 1em;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.409);
+  background-color: white;
 }
 
 #total-price {

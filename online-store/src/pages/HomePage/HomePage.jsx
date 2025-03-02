@@ -5,9 +5,9 @@ import "./HomePage.css";
 export const UsernameContext = createContext(null);
 
 export default function HomePage() {
-  // creating username state so that Login can easily pass it to Welcome
+  // creating username state so that "Login" can easily pass it to "Welcome"
   /* username is an object consisting of name - acquired from user input in 
-       Login component, and isValid - determined in line 30 and 31 of Login through
+       Login component, and isValid - determined in line 30 and 31 of "Login" through
        the validateName function. */
   const [username, setUsername] = useState({
     name: "",

@@ -3,7 +3,9 @@ import "./Cart.css";
 import { useContext } from "react";
 import { CartDisplayContext } from "../../App";
 
-export default function Cart({ title, price }) {
+/* NOTE that the task says to name this component "TotalPrice", however I 
+   felt Cart was more fitting */
+export default function Cart() {
   const { cartProducts } = useContext(CartDisplayContext);
 
   let totalPrice = 0;

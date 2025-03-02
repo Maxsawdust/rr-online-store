@@ -4,7 +4,6 @@ import "./NavBar.css";
 
 export default function NavBar() {
   return (
-    //
     <header className="navbar">
       <img src={shopLogo} alt="" id="shop-logo" />
       <h1 id="navbar-heading">Saunders' Superstore</h1>
