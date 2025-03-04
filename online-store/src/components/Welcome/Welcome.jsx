@@ -16,6 +16,7 @@ export default function Welcome() {
   const handleClick = () => {
     // set localStorage stuff
     localStorage.setItem("isLoggedIn", false);
+    localStorage.setItem("username", "");
     setUsername({ ...username, name: "" });
   };
 
@@ -29,19 +30,22 @@ export default function Welcome() {
       <div className="welcome-nav-buttons">
         <button
           className="welcome-page-button"
-          onClick={() => navigate("/products")}>
+          onClick={() => navigate("/products")}
+        >
           Products
         </button>
         <button
           className="welcome-page-button"
-          onClick={() => navigate("/about")}>
+          onClick={() => navigate("/about")}
+        >
           About
         </button>
       </div>
       <button
         className="welcome-page-button"
         id="log-out-button"
-        onClick={handleClick}>
+        onClick={handleClick}
+      >
         Log out
       </button>
     </div>
