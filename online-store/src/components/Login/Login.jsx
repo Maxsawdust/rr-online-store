@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UsernameContext } from "../../pages/HomePage/HomePage.jsx";
+import { AuthContext } from "../../App.jsx";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Login.css";
@@ -7,6 +8,7 @@ import "./Login.css";
 export default function Login() {
   // retrieving state from context provider
   const { username, setUsername } = useContext(UsernameContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   // using formik as a hook
   const formik = useFormik({
@@ -21,6 +23,8 @@ export default function Login() {
       setUsername({ ...username, username: values.username });
       // local storage gets updated to include "isLoggedIn"
       localStorage.setItem("isLoggedIn", true);
+      // state gets updated to true so that NavBar link gets changed
+      setIsLoggedIn(true);
     },
     validateOnChange: false,
     validateOnBlur: false,
