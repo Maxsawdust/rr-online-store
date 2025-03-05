@@ -1,0 +1,22 @@
+.Register {
+  /* sizing */
+  width: 30%;
+  padding: 1.5rem;
+  /* formatting */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10rem;
+  /* styling */
+  border: 2px solid;
+  border-radius: 1rem;
+}
+
+.registration-form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}

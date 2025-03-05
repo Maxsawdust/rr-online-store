@@ -1,29 +1,43 @@
-import { createContext, useState } from "react";
-import { Welcome, Login } from "../../components";
+import { useContext } from "react";
+import Button from "react-bootstrap/Button";
 import "./HomePage.css";
-
-export const UsernameContext = createContext(null);
+import { useNavigate } from "react-router-dom";
+import { Welcome } from "../";
+import { NameContext } from "../../Context/AppContext";
 
 export default function HomePage() {
-  // creating username state so that "Login" can easily pass it to "Welcome"
-  /* username is an object consisting of name - acquired from user input in 
-       Login component, and isValid - determined in line 30 and 31 of "Login" through
-       the validateName function. */
-  const [username, setUsername] = useState({
-    name: "",
-    isValid: true,
-  });
+  const { currentUsername } = useContext(NameContext);
+  const navigate = useNavigate();
 
   /* getting a boolean value based on localStorage, so that the logged in status 
      persists between render */
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   return (
-    // Created a provider component to keep HomePage clean
-    <UsernameContext.Provider value={{ username, setUsername }}>
-      <div className="page-container" id="home-page">
-        {isLoggedIn ? <Welcome /> : <Login />}
-      </div>
-    </UsernameContext.Provider>
+    <div className="page-container" id="home-page">
+      {isLoggedIn ? (
+        <Welcome name={currentUsername} />
+      ) : (
+        <>
+          {" "}
+          <h1 className="home-heading">Hello!</h1>
+          <h2 className="home-heading">
+            Please register or log in to continue
+          </h2>
+          <div id="home-button-container">
+            <Button
+              className="home-page-button"
+              onClick={() => navigate("/register")}>
+              Register
+            </Button>
+            <Button
+              className="home-page-button"
+              onClick={() => navigate("/login")}>
+              Log in
+            </Button>
+          </div>
+        </>
+      )}
+    </div>
   );
 }

@@ -1,38 +1,39 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ProductPage, AboutPage } from "./pages";
+import {
+  HomePage,
+  ProductPage,
+  AboutPage,
+  Register,
+  Login,
+  Welcome,
+} from "./pages";
 import { Layout, Cart } from "./components";
+import { createContext, useState } from "react";
+import AppContext from "./Context/AppContext";
 import "./App.css";
-import { createContext, useEffect, useState } from "react";
 
 // creating a context to provide the buttons in ProductCard a state to display Cart
 export const CartDisplayContext = createContext();
-// creating a context to detect if user is logged in
-export const AuthContext = createContext();
 
 function App() {
   const [cartProducts, setCartProducts] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // using effect to detect if the user is logged in through re-render
-  useEffect(() => {
-    setIsLoggedIn(localStorage.getItem("isLoggedIn" === "true"));
-  }, []);
 
   return (
-    // using context to pass the state that determines whether to display the Cart
-    <CartDisplayContext.Provider value={{ cartProducts, setCartProducts }}>
-      <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <AppContext>
+      <CartDisplayContext.Provider value={{ cartProducts, setCartProducts }}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route element={cartProducts[0] ? <Cart /> : null}>
               <Route path="/products" element={<ProductPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Route>
           </Route>
         </Routes>
-      </AuthContext.Provider>
-    </CartDisplayContext.Provider>
+      </CartDisplayContext.Provider>
+    </AppContext>
   );
 }
 

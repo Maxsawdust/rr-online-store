@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../App";
+import { AuthContext } from "../../Context/AppContext";
 import shopLogo from "../../assets/shop-logo.png";
 import "./NavBar.css";
 import { useContext } from "react";
 
 export default function NavBar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  console.log(isLoggedIn);
 
   return (
     <header className="navbar">

@@ -2,17 +2,26 @@ import { Outlet } from "react-router-dom";
 import "./Cart.css";
 import { useContext } from "react";
 import { CartDisplayContext } from "../../App";
+import { AuthContext } from "../../Context/AppContext";
 
 /* NOTE that the task says to name this component "TotalPrice", however I 
    felt Cart was more fitting */
 export default function Cart() {
   const { cartProducts } = useContext(CartDisplayContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   let totalPrice = 0;
   cartProducts.forEach((product) => {
     totalPrice += product.totalPrice;
   });
 
+  if (!isLoggedIn) {
+    return (
+      <>
+        <Outlet />
+      </>
+    );
+  }
   return (
     <>
       <Outlet />

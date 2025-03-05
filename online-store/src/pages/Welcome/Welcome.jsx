@@ -1,28 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { UsernameContext } from "../../pages/HomePage/HomePage.jsx";
+import {
+  UserContext,
+  AuthContext,
+  NameContext,
+} from "../../Context/AppContext.jsx";
 import "./Welcome.css";
 import { useContext } from "react";
-import { AuthContext } from "../../App.jsx";
 
-export default function Welcome() {
+export default function Welcome({ name }) {
   // useNavigate to allow the buttons to navigate to products and about page.
   const navigate = useNavigate();
-  const { username, setUsername } = useContext(UsernameContext);
+  const { users, setUsers } = useContext(UserContext);
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-
-  // retrieving username from localStorage.
-  /* this component is only rendered if a valid username is entered, so username 
-     will always be present in storage. */
-  const name = localStorage.getItem("username");
+  const { setCurrentUsername } = useContext(NameContext);
 
   const handleClick = () => {
     // set localStorage stuff
     localStorage.setItem("isLoggedIn", false);
-    localStorage.setItem("username", "");
-    // setting username to "" on logOut
-    setUsername({ ...username, name: "" });
     // setting "isLoggedIn" to false to update Navbar link
     setIsLoggedIn(false);
+
+    // setting current username when logged out
+    setCurrentUsername(null);
+    localStorage.removeItem("currentUsername");
   };
 
   return (

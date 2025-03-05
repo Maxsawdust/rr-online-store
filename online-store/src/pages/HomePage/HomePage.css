@@ -2,4 +2,31 @@
   flex: 1;
   width: 35%;
   align-items: center;
+  justify-content: center;
+}
+
+#home-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5em;
+}
+
+h2.home-heading {
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  border-radius: 0.5em;
+  box-shadow: 0 0.3em 0.2em -0.2em rgba(0, 0, 0, 0.178);
+}
+
+.home-page-button {
+  font-size: 3em;
+  border-radius: 2rem;
+  background-color: #2d523b;
+  border: none;
+}
+
+.home-page-button:hover {
+  background-color: #558e6b;
 }
